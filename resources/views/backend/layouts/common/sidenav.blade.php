@@ -5,8 +5,10 @@
     <!--begin::Brand-->
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <!--begin::Logo-->
-        <a href="#">
-            <img alt="Logo" src="assets/backend/media/logos/logo-1-dark.svg" class="h-25px logo"/>
+        <a href="#" style="font-size: 25px; color: whitesmoke; font-weight: bold">
+            {{--            <img alt="Logo" src="{{ asset('assets/backend/media/images/logo/deshbuilder_logo.png') }}"--}}
+            {{--                 class="logo" style="width: 180px; height: 60px; object-fit: cover"/>--}}
+            Deshbuilders
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggler-->
@@ -47,7 +49,7 @@
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link" href="/admin/dashboard">
 										<span class="menu-icon">
 											<i class="bi bi-grid fs-3"></i>
 										</span>
@@ -55,41 +57,18 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link" href="#">
+                    <a class="menu-link {{ request()->is('admin/project/*') ? 'active' : '' }}"
+                       href="{{ route('admin.project.index') }}">
 										<span class="menu-icon">
 											<i class="bi bi-tablet fs-3"></i>
 										</span>
-                        <span class="menu-title">No Toolbar</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link" href="#">
-										<span class="menu-icon">
-											<i class="bi bi-clipboard-databi bi-clipboard-data fs-3"></i>
-										</span>
-                        <span class="menu-title">Light Aside</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link" href="#">
-										<span class="menu-icon">
-											<i class="bi bi-window fs-3"></i>
-										</span>
-                        <span class="menu-title">Only Header</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link" href="#">
-										<span class="menu-icon">
-											<i class="bi bi-app-indicator fs-3"></i>
-										</span>
-                        <span class="menu-title">Landing Page</span>
+                        <span class="menu-title">Project</span>
                     </a>
                 </div>
 
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Crafted</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Ledger Management</span>
                     </div>
                 </div>
 
@@ -98,64 +77,104 @@
 										<span class="menu-icon">
 											<i class="bi bi-person fs-2"></i>
 										</span>
-										<span class="menu-title">Account</span>
+										<span class="menu-title">Ledger</span>
 										<span class="menu-arrow"></span>
 									</span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
-                            <a class="menu-link" href="../../demo1/dist/account/overview.html">
+                            <a class="menu-link" href="#">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                <span class="menu-title">Overview</span>
+                                <span class="menu-title">Ledger Type</span>
+                            </a>
+                        </div>
+
+                        <div class="menu-item">
+                            <a class="menu-link" href="#">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                <span class="menu-title">Ledger Group</span>
+                            </a>
+                        </div>
+
+                        <div class="menu-item">
+                            <a class="menu-link" href="#">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                <span class="menu-title">Ledger Name</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Report Management</span>
+                    </div>
+                </div>
+
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<span class="menu-link">
+										<span class="menu-icon">
+											<i class="bi bi-person fs-2"></i>
+										</span>
+										<span class="menu-title">Reports</span>
+										<span class="menu-arrow"></span>
+									</span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                        <div class="menu-item">
+                            <a class="menu-link" href="#">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                <span class="menu-title">Income</span>
+                            </a>
+                        </div>
+
+                        <div class="menu-item">
+                            <a class="menu-link" href="#">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                <span class="menu-title">Expenditure</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Access Control</span>
+                    </div>
+                </div>
+
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<span class="menu-link">
+										<span class="menu-icon">
+											<i class="bi bi-person fs-2"></i>
+										</span>
+										<span class="menu-title">User Management</span>
+										<span class="menu-arrow"></span>
+									</span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                        <div class="menu-item">
+                            <a class="menu-link" href="#">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                <span class="menu-title">User</span>
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="../../demo1/dist/account/settings.html">
+                            <a class="menu-link" href="#">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-                                <span class="menu-title">Settings</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="../../demo1/dist/account/security.html">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                <span class="menu-title">Security</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="../../demo1/dist/account/billing.html">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                <span class="menu-title">Billing</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="../../demo1/dist/account/statements.html">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                <span class="menu-title">Statements</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="../../demo1/dist/account/referrals.html">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                <span class="menu-title">Referrals</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="../../demo1/dist/account/api-keys.html">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-                                <span class="menu-title">API Keys</span>
+                                <span class="menu-title">Role</span>
                             </a>
                         </div>
                     </div>

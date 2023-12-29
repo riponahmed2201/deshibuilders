@@ -18,8 +18,6 @@ class LoginController extends Controller
 
     public function login(LoginRequest $loginRequest)
     {
-        dd($loginRequest->all());
-
         try {
 
             $adminUser = Admin::where('email', $loginRequest->email)->where('status', 'YES')->first();
