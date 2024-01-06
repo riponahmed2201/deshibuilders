@@ -1,5 +1,7 @@
 @extends('backend.layouts.master')
 
+@section('title', 'Project Create')
+
 @section('content')
     <div id="kt_content_container" class="container-xxl">
 
@@ -42,7 +44,7 @@
                     @isset($editModeData)
                         @method('PUT')
 
-                        <input type="text" hidden name="designation_id" value="{{ $editModeData->id }}">
+                        <input type="text" hidden name="project_id" value="{{ $editModeData->id }}">
                     @endisset
 
                     <div class="row mb-5">
@@ -139,8 +141,6 @@
 @section('page_js')
 
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-
-    {{--    <script src="{{ asset('assets/backend/plugins/global/ckeditor/ckeditor.js') }}"></script>--}}
 
     <script type="text/javascript">
         var i;

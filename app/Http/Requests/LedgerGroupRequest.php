@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectRequest extends FormRequest
+class LedgerGroupRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,24 +21,17 @@ class ProjectRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (isset($this->project_id)) {
-
+        if (isset($this->ledger_group_id)) {
             return [
                 'name' => 'required',
-                'location' => 'required',
-                'launching_date' => 'required',
-                'hand_over_date' => 'required',
-                'details' => 'required',
+                'description' => 'required',
                 'status' => 'required'
             ];
         }
 
         return [
             'name' => 'required',
-            'location' => 'required',
-            'launching_date' => 'required',
-            'hand_over_date' => 'required',
-            'details' => 'required',
+            'description' => 'required',
             'status' => 'required'
         ];
     }

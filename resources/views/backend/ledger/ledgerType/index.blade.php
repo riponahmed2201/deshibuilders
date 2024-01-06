@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title', 'Project List')
+@section('title', 'Ledger Type List')
 
 @section('content')
     <div id="kt_content_container" class="container-xxl">
@@ -9,13 +9,13 @@
             <!--begin::Header-->
             <div class="card-header border-0 pt-5">
                 <h3 class="card-title align-items-start flex-column">
-                    <span class="card-label fw-bolder fs-3 mb-1">Project List</span>
-                    <span class="text-muted mt-1 fw-bold fs-7">Over {{ count($results)  }} projects</span>
+                    <span class="card-label fw-bolder fs-3 mb-1">Ledger Type List</span>
+                    <span class="text-muted mt-1 fw-bold fs-7">Over {{ count($results)  }} ledger types</span>
                 </h3>
                 <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
-                     title="Click to add a project"
-                     data-bs-original-title="Click to add a project">
-                    <a href="{{ route('admin.project.create') }}" class="btn btn-sm btn-light btn-active-primary">
+                     title="Click to add a ledger type"
+                     data-bs-original-title="Click to add a ledger type">
+                    <a href="{{ route('admin.ledgerType.create') }}" class="btn btn-sm btn-light btn-active-primary">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                         <span class="svg-icon svg-icon-3">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -27,7 +27,7 @@
                                                           fill="black"></rect>
 												</svg>
 											</span>
-                        <!--end::Svg Icon-->New Project</a>
+                        <!--end::Svg Icon-->New Ledger Type</a>
                 </div>
             </div>
             <!--end::Header-->
@@ -42,11 +42,8 @@
                         <tr class="fw-bolder text-muted">
                             <th>SL No.
                             </th>
-                            <th>Project Name</th>
-                            <th>Launching Date</th>
-                            <th>Hand Over Date</th>
-                            <th>Location</th>
-                            <th>Details</th>
+                            <th>Name</th>
+                            <th>Code</th>
                             <th>Status</th>
                             <th class="text-center">Actions</th>
                         </tr>
@@ -58,12 +55,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$value->name}}</td>
-                                <td>{{$value->launching_date}}</td>
-                                <td>{{$value->hand_over_date}}</td>
-                                <td>{{$value->location}}</td>
-                                <td>
-                                    {!! $value->details !!}
-                                </td>
+                                <td>{{$value->code}}</td>
                                 <td>
                                     <label class="form-check form-switch form-check-custom form-check-solid">
 
@@ -85,7 +77,7 @@
                                 <td>
                                     <div class="d-flex justify-content-center flex-shrink-0">
 
-                                        <a href="{{ route('admin.project.edit', $value->id) }}"
+                                        <a href="{{ route('admin.ledgerType.edit', $value->id) }}"
                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                             <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                             <span class="svg-icon svg-icon-3">
@@ -127,15 +119,15 @@
 @section('page_js')
 
     <script>
-        function updateStatus(status, project_id) {
+        function updateStatus(status, ledger_type_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.project.update.status') }}",
+                url: "{{ route('admin.ledgerType.update.status') }}",
                 data: {
-                    project_id: project_id,
+                    ledger_type_id: ledger_type_id,
                     status: status,
                     _token: v_token
                 },
