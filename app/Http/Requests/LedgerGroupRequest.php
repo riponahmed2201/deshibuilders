@@ -21,14 +21,6 @@ class LedgerGroupRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (isset($this->ledger_group_id)) {
-            return [
-                'name' => 'required',
-                'description' => 'required',
-                'status' => 'required'
-            ];
-        }
-
         return [
             'name' => 'required',
             'description' => 'required',

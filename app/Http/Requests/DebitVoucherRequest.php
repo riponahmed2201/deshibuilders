@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LedgerTypeRequest extends FormRequest
+class DebitVoucherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,13 @@ class LedgerTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'code' => 'required',
+            'voucher_no' => 'required',
+            'bank_cash_id' => 'required',
+            'project_id' => 'required',
+            'ledger_name_id' => 'required',
+            'amount' => 'required',
+            'particulars' => 'required',
+            'voucher_date' => 'required',
             'status' => 'required'
         ];
     }

@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\BankCash\BankCashController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Ledger\LedgerGroupController;
 use App\Http\Controllers\Backend\Ledger\LedgerNameController;
 use App\Http\Controllers\Backend\Ledger\LedgerTypeController;
 use App\Http\Controllers\Backend\Project\ProjectController;
+use App\Http\Controllers\Backend\Voucher\CreditVoucherController;
+use App\Http\Controllers\Backend\Voucher\DebitVoucherController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,6 +33,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{project_id}/edit', [ProjectController::class, 'edit'])->name('admin.project.edit');
         Route::put('/{project_id}/update', [ProjectController::class, 'update'])->name('admin.project.update');
         Route::put('/update-status', [ProjectController::class, 'updateStatus'])->name('admin.project.update.status');
+    });
+
+    //Bank Cash
+    Route::group(['prefix' => 'admin/bank-cash'], function () {
+        Route::get('/index', [BankCashController::class, 'index'])->name('admin.bankCash.index');
+        Route::get('/create', [BankCashController::class, 'create'])->name('admin.bankCash.create');
+        Route::post('/store', [BankCashController::class, 'store'])->name('admin.bankCash.store');
+        Route::get('/{id}/edit', [BankCashController::class, 'edit'])->name('admin.bankCash.edit');
+        Route::put('/{id}/update', [BankCashController::class, 'update'])->name('admin.bankCash.update');
+        Route::put('/update-status', [BankCashController::class, 'updateStatus'])->name('admin.bankCash.update.status');
     });
 
     // Ledger Type, Group and Name
@@ -66,6 +79,31 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         });
 
     });
+
+    //Voucher Credit and Debit
+    Route::group(['prefix' => 'admin/voucher'], function () {
+
+        //Credit Voucher
+        Route::group(['prefix' => 'credit'], function () {
+            Route::get('/index', [CreditVoucherController::class, 'index'])->name('admin.creditVoucher.index');
+            Route::get('/create', [CreditVoucherController::class, 'create'])->name('admin.creditVoucher.create');
+            Route::post('/store', [CreditVoucherController::class, 'store'])->name('admin.creditVoucher.store');
+            Route::get('/{id}/edit', [CreditVoucherController::class, 'edit'])->name('admin.creditVoucher.edit');
+            Route::put('/{id}/update', [CreditVoucherController::class, 'update'])->name('admin.creditVoucher.update');
+            Route::put('/update-status', [CreditVoucherController::class, 'updateStatus'])->name('admin.creditVoucher.update.status');
+        });
+
+        //Debit Voucher
+        Route::group(['prefix' => 'debit'], function () {
+            Route::get('/index', [DebitVoucherController::class, 'index'])->name('admin.debitVoucher.index');
+            Route::get('/create', [DebitVoucherController::class, 'create'])->name('admin.debitVoucher.create');
+            Route::post('/store', [DebitVoucherController::class, 'store'])->name('admin.debitVoucher.store');
+            Route::get('/{id}/edit', [DebitVoucherController::class, 'edit'])->name('admin.debitVoucher.edit');
+            Route::put('/{id}/update', [DebitVoucherController::class, 'update'])->name('admin.debitVoucher.update');
+            Route::put('/update-status', [DebitVoucherController::class, 'updateStatus'])->name('admin.debitVoucher.update.status');
+        });
+    });
+
 //    //password change
 //    Route::get('/user-password-change', [PasswordChangeController::class, 'showPasswordChangeForm'])->name('user.showPasswordChangeForm');
 //    Route::put('/user-password/update',  [PasswordChangeController::class, 'updateUserPassword'])->name('user.updateUserPassword');

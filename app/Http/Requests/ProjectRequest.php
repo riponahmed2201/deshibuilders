@@ -21,18 +21,6 @@ class ProjectRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (isset($this->project_id)) {
-
-            return [
-                'name' => 'required',
-                'location' => 'required',
-                'launching_date' => 'required',
-                'hand_over_date' => 'required',
-                'details' => 'required',
-                'status' => 'required'
-            ];
-        }
-
         return [
             'name' => 'required',
             'location' => 'required',

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LedgerTypeRequest extends FormRequest
+class BankCashRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,8 @@ class LedgerTypeRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'code' => 'required',
+            'account_number' => 'required',
+            'description' => 'required',
             'status' => 'required'
         ];
     }

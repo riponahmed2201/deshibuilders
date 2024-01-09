@@ -67,6 +67,16 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('admin/bank-cash/*') ? 'active' : '' }}"
+                       href="{{ route('admin.bankCash.index') }}">
+										<span class="menu-icon">
+											<i class="bi bi-tablet fs-3"></i>
+										</span>
+                        <span class="menu-title">Bank Cash</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Ledger Management</span>
                     </div>
@@ -109,6 +119,44 @@
 													<span class="bullet bullet-dot"></span>
 												</span>
                                 <span class="menu-title">Ledger Name</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pt-8 pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Voucher Management</span>
+                    </div>
+                </div>
+
+                <div data-kt-menu-trigger="click"
+                     class="menu-item menu-accordion {{ request()->is('admin/voucher/*') ? 'show' : '' }}">
+                        <span class="menu-link">
+                            <span class="menu-icon">
+                                <i class="bi bi-person fs-2"></i>
+                            </span>
+                            <span class="menu-title">Voucher</span>
+                            <span class="menu-arrow"></span>
+                        </span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('admin/voucher/credit/*') ? 'active' : '' }}"
+                               href="{{route('admin.creditVoucher.index')}}">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                <span class="menu-title">Credit Voucher</span>
+                            </a>
+                        </div>
+
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('admin/voucher/debit/*') ? 'active' : '' }}"
+                               href="{{route('admin.debitVoucher.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Debit Voucher</span>
                             </a>
                         </div>
                     </div>

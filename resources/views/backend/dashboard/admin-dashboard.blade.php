@@ -1,5 +1,7 @@
 @extends('backend.layouts.master')
 
+@section('title', 'Admin Dashboard')
+
 @section('content')
     <div id="kt_content_container" class="container-xxl">
         <div class="row g-5 g-xl-8">
